@@ -15,7 +15,7 @@
         android:theme="@style/Theme.QuotesMvvm"
         tools:targetApi="31">
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.example.quotesmvvm.ui.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
