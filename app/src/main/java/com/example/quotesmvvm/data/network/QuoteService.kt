@@ -9,7 +9,8 @@ class QuoteService {
     private val retrofit = RetrofitHelper.getRetrofit()
 
     suspend fun getQuotes(): List<QuoteModel> {
-        val response = retrofit.create(QuoteApiClient::class.java).getAllQuotes()
+        val response = retrofit.create(QuoteApiClient::class.java).getAllQuotes()// 2 corrutina
+
         return withContext(Dispatchers.IO) {
             response.body() ?: emptyList()
         }

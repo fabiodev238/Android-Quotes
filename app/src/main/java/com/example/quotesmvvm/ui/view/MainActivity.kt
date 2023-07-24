@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        quoteViewModel.onCreate()
+        quoteViewModel.onCreate()                        //useCase N#1
 
         quoteViewModel.quoteModel.observe(this, Observer {// aca hace la subscripcion al viewModel
             binding.tvQuote.text = it.quote
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         // para toda la pantalla
         binding.viewContainer.setOnClickListener {
-            quoteViewModel.randomQuote()
+            quoteViewModel.randomQuote()                    //useCase N#2
 
 
         }

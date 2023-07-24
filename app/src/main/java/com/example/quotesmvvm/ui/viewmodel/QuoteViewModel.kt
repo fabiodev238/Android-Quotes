@@ -12,13 +12,14 @@ class QuoteViewModel : ViewModel() {
 
     val quoteModel = MutableLiveData<QuoteModel>()
     val isLoading = MutableLiveData<Boolean>() // progressbar
-    var getQuotesUseCase = GetQuotesUseCase()
+    var getQuotesUseCase = GetQuotesUseCase()// instancia 5 corrutinas
     var getRandomQuoteUseCase = GetRandomQuoteUseCase()
 
-    fun onCreate() {
+    fun onCreate() {// // -5 corrutinas en viewModel
+
         viewModelScope.launch {
             isLoading.postValue(true)
-            val result = getQuotesUseCase()
+            val result = getQuotesUseCase() // 5 corrutinas
 
             if (!result.isNullOrEmpty()) {
                 quoteModel.postValue(result[0])

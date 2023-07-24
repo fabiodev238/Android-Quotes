@@ -10,8 +10,8 @@ class QuoteRepository {
 
     suspend fun getAllQuotes():List<QuoteModel>{
 
-        val response = api.getQuotes()
-        QuoteProvider.quotes =  response
-        return response
+        val response = api.getQuotes()// llama backend y recupera la citas -> 3 corrutina
+        QuoteProvider.quotes =  response// En var quotes guardo la respuesta (response) del servidor -> mini DataBase
+        return response // devuelvo la respuesta
     }
 }
