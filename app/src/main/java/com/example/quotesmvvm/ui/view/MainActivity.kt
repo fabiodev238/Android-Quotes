@@ -7,7 +7,9 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.example.quotesmvvm.ui.viewmodel.QuoteViewModel
 import com.example.quotesmvvm.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -28,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             binding.loading.isVisible = it
         })
 
-        // para toda la pantalla
+        // click para toda la pantalla
         binding.viewContainer.setOnClickListener {
             quoteViewModel.randomQuote()                    //useCase N#2
 

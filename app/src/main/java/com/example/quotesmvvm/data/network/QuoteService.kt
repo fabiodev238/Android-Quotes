@@ -4,12 +4,13 @@ import com.example.quotesmvvm.core.RetrofitHelper
 import com.example.quotesmvvm.data.model.QuoteModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class QuoteService {
-    private val retrofit = RetrofitHelper.getRetrofit()
+// provee QuoteApiClient de retrofit
+class QuoteService @Inject constructor(private val api: QuoteApiClient) { //preparada para inyectar -> inyectado  ----3
 
     suspend fun getQuotes(): List<QuoteModel> {
-        val response = retrofit.create(QuoteApiClient::class.java).getAllQuotes()// 2 corrutina
+        val response = api.getAllQuotes()// 2 corrutina
 
         return withContext(Dispatchers.IO) {
             response.body() ?: emptyList()
