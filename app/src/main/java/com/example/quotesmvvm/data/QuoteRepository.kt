@@ -17,7 +17,7 @@ class QuoteRepository @Inject constructor(
     suspend fun getAllQuotesFromApi(): List<Quote> { //4 room
 
         val response: List<QuoteModel> = api.getQuotes()   // llama backend y recupera la citas -> 3 corrutina
-        return response.map { it.toDomain() }                                    // devuelvo la respuesta de todas las citas
+        return response.map { it.toDomain() }                               // devuelvo la respuesta de todas las citas
     }
 
     suspend fun getAllQuotesFromDatabase(): List<Quote> {

@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.quotesmvvm.domain.GetQuotesUseCase
 import com.example.quotesmvvm.domain.GetRandomQuoteUseCase
-import com.example.quotesmvvm.data.model.QuoteModel
 import com.example.quotesmvvm.domain.model.Quote
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
