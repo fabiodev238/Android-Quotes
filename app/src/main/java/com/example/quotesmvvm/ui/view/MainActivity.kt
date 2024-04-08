@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             binding.loading.isVisible = it
         })
 
-        // para toda la pantalla
+        // Para toda la Pantalla
         binding.viewContainer.setOnClickListener {
             quoteViewModel.randomQuote()
 
