@@ -12,6 +12,7 @@ class GetQuotesUseCase @Inject constructor(private val repository: QuoteReposito
         val quotes = repository.getAllQuotesFromApi()
 
        return if (quotes.isNotEmpty()) {
+
             repository.clearQuotes()
             repository.insertQuotes(quotes.map { it.toDatabase() })
            quotes
