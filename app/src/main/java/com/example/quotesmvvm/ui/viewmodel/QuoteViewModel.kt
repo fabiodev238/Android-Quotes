@@ -3,9 +3,9 @@ package com.example.quotesmvvm.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.quotesmvvm.data.model.QuoteModel
 import com.example.quotesmvvm.domain.GetQuotesUseCase
 import com.example.quotesmvvm.domain.GetRandomQuoteUseCase
-import com.example.quotesmvvm.data.model.QuoteModel
 import kotlinx.coroutines.launch
 
 class QuoteViewModel : ViewModel() {
@@ -29,12 +29,14 @@ class QuoteViewModel : ViewModel() {
     }
 
     fun randomQuote() {
+        viewModelScope.launch {
         isLoading.postValue(true)// segundo caso de uso
         val quote = getRandomQuoteUseCase()
 
-        if (quote != null) {
-            quoteModel.postValue(quote)
+        quote?.let {
+            quoteModel.value = it
         }
         isLoading.postValue(false)
+       }
     }
 }
