@@ -10,7 +10,6 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-
 class GetQuotesUseCaseTest{
 
     @RelaxedMockK
@@ -36,9 +35,6 @@ class GetQuotesUseCaseTest{
         coVerify(exactly = 1) { quoteRepository.getAllQuotesFromDatabase() }
     }
 
-
-
-
     @Test
     fun `when the api return something then get values from api`() = runBlocking {
         //Given
@@ -55,5 +51,4 @@ class GetQuotesUseCaseTest{
         assert(response == myList)
     }
 
- // 24
 }
