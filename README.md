@@ -5,4 +5,5 @@
 - Fragments
 - RecyclerView
 - Retrofit
+- CI CD
 
