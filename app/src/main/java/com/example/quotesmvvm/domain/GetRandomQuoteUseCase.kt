@@ -10,7 +10,7 @@ class GetRandomQuoteUseCase {
 
         if (!quotes.isNullOrEmpty()) {
 
-            val randomNumber = (0..quotes.size - 1).random() // ó (quotes.indices).random() Que es lo mismo
+            val randomNumber = (0..quotes.size - 1).random()
             return quotes[randomNumber]
         }
         return null

@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class QuoteViewModel : ViewModel() {
 
     val quoteModel = MutableLiveData<QuoteModel>()
-    val isLoading = MutableLiveData<Boolean>() // progressbar
+    val isLoading = MutableLiveData<Boolean>()
     var getQuotesUseCase = GetQuotesUseCase()
     var getRandomQuoteUseCase = GetRandomQuoteUseCase()
 
@@ -30,7 +30,7 @@ class QuoteViewModel : ViewModel() {
 
     fun randomQuote() {
         viewModelScope.launch {
-        isLoading.postValue(true)// segundo caso de uso
+        isLoading.postValue(true)
         val quote = getRandomQuoteUseCase()
 
         quote?.let {

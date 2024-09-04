@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.example.quotesmvvm.ui.viewmodel.QuoteViewModel
 import com.example.quotesmvvm.databinding.ActivityMainBinding
-// mirar a partir del minuto 20:00
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         quoteViewModel.onCreate()
 
-        quoteViewModel.quoteModel.observe(this, Observer {// aca hace la subscripcion al viewModel
+        quoteViewModel.quoteModel.observe(this, Observer {
             binding.tvQuote.text = it.quote
             binding.tvAuthor.text = it.author
         })
@@ -28,12 +28,11 @@ class MainActivity : AppCompatActivity() {
             binding.loading.isVisible = it
         })
 
-        // Para toda la Pantalla
+
         binding.viewContainer.setOnClickListener {
             quoteViewModel.randomQuote()
 
 
         }
     }
-
 }
